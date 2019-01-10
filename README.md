@@ -1,7 +1,7 @@
 # wrestling_cards
 A cool React Card demo of wrestling stuff
 
-## Simple Backend
+## Simple backend
 To begin, we should setup a simple backend where we can submit a call and get a list of wrestlers. I think we should use some easy technology at first such as node and express
 
 ### TODO
@@ -11,13 +11,29 @@ To begin, we should setup a simple backend where we can submit a call and get a 
 Note: These steps were blatantly borrowed from this user:
 https://github.com/JonathanMcclennon/wrestling-api/
 
-## Simple Frontend
+## Simple frontend
 After we have a simple backend setup, it'll be good to prop up a simple react based front end to show a listing of Wrestlers.
 
 ### TODO
-- [ ] Make a React based SPA and serve it
+- [X] Make a React based SPA and serve it
 - [ ] Have the front end call the simple backend.
-- [ ] Display the contents of the call
+- [ ] Display the contents of the call via a custom component
+
+## Better backend
+Now that we have the basics, let's make it such that we can also interact with these wrestlering card
+
+### TODO
+- [ ] Enhance the wrestling data with a 'fun fact', a picture, and the titles (if any)
+- [ ] Make an endpoint to update the data about a wrestler
+
+## Better frontend
+We can improve the frontend code to provide for more interactivity.
+
+### TODO
+- [ ] Make each wrestler into a 'card'
+- [ ] Make each 'card' dismiss-able
+- [ ] Show a visual 'stack' of cards
+- [ ] Make each card editable to change 'fun fact', picture, and titles 
 
 ## Expert backend
 What if we could get information that was super up to date at a regular interval?
