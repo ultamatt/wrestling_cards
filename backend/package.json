@@ -1,5 +1,5 @@
 {
-  "name": "wrestling_cards",
+  "name": "wrestling_cards_backend",
   "version": "0.0.1",
   "description": "A full stack application to let you see some cool wrestlers",
   "main": "index.js",
