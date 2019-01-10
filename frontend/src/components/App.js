@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Wrestler from './Wrestler';
+import Clock from './Clock';
 
 const Container = styled.div`
     display: flex;
@@ -24,32 +26,44 @@ const Title = styled.h1`
     font-size: 2.5rem;
     font-weight: 700;
 `;
+// 
+// const Paragraph = styled.p`
+//     color: black;
+//     font-size: 1rem;
+// `;
+//
+// const Link = styled.a`
+//     color: #00a8e8;
+// `;
 
-const Paragraph = styled.p`
-    color: black;
-    font-size: 1rem;
-`;
-
-const Link = styled.a`
-    color: #00a8e8;
-`;
+// const App = () => (
+//     <Container>
+//         <Wrapper>
+//             <Title>
+//                 <span role="img" aria-label="Bolt">
+//                     ⚡
+//                 </span>{' '}
+//                 React Bolt
+//             </Title>
+//             <Wrestler/>
+//             <Paragraph>
+//                 Read the article{' '}
+//                 <Link href="soon" target="_blank">
+//                     here.
+//                 </Link>
+//             </Paragraph>
+//         </Wrapper>
+//     </Container>
+// );
 
 const App = () => (
     <Container>
+        <Title>
+            Wrestling Cards
+        </Title>
         <Wrapper>
-            <Title>
-                <span role="img" aria-label="Bolt">
-                    ⚡
-                </span>{' '}
-                React Bolt
-            </Title>
-            <Paragraph>The most simple and robust React boilerplate.</Paragraph>
-            <Paragraph>
-                Read the article{' '}
-                <Link href="soon" target="_blank">
-                    here.
-                </Link>
-            </Paragraph>
+            <Clock/>
+            <Wrestler/>
         </Wrapper>
     </Container>
 );
