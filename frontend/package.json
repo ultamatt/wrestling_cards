@@ -25,13 +25,13 @@
         "boilerplate"
     ],
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/ultamatt/wrestling_cards.git"
+        "type": "git",
+        "url": "git+https://github.com/ultamatt/wrestling_cards.git"
     },
     "author": "Matt Moeller",
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/ultamatt/wrestling_cards/issues"
+        "url": "https://github.com/ultamatt/wrestling_cards/issues"
     },
     "homepage": "https://github.com/ultamatt/wrestling_cards#readme",
     "devDependencies": {
