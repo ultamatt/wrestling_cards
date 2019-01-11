@@ -10,25 +10,36 @@ const Container = styled.div`
     font-family: 'Open Sans', sans-serif;
 `;
 
-const Thumbnail = styled.img`
-  flex-grow: 1;
-  width: 300px;
-  height: 250px;
-  padding: 5px;
-  margin: 15px;
-  border: 1px solid black;
-  border-radius: 8px;
+const Showcase = styled.div`
+    flex-grow: 1;
+    width: 200px;
+    height: 400px;
+    padding: 5px;
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 8px;
 `;
 
 const Name = styled.h1`
     color: black;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
 `;
 
-class Wrestler extends Component {
+class WrestlerList extends Component {
     state = {
-        name: 'Macho Man',
+        wrestlers: [
+            {
+                id: 1,
+                name: 'Macho Man'
+            },{
+                id: 2,
+                name: 'Hulk Hogan'
+            },{
+                id: 3,
+                name: 'John Cena'
+            }
+        ],
         hasErrored: false,
         isLoading: false
     };
@@ -48,12 +59,12 @@ class Wrestler extends Component {
                 return response;
             })
             .then((response) => response.json())
-            .then((name) => this.setState({ name })) // ES6 property value shorthand for { items: items }
+            .then((wrestlers) => this.setState({ wrestlers:wrestlers.data })) // ES6 property value shorthand for { items: items }
             .catch(() => this.setState({ hasErrored: true }));
     };
 
     render() {
-        const { name, hasErrored, isLoading } = this.state;
+        const { wrestlers, hasErrored, isLoading } = this.state;
 
         if (hasErrored) {
             return (<p>Sorry! There was an error loading the items</p>);
@@ -63,12 +74,17 @@ class Wrestler extends Component {
 
         return (
             <Container>
-                <Thumbnail />
-                <Name>{name}</Name>
+                {wrestlers.map((wrestler) => (
+                    <Showcase>
+                        <Name key={wrestler.id}>
+                            {wrestler.name}
+                        </Name>
+                    </Showcase>
+                ))}
             </Container>
         );
     }
 
 };
 
-export default Wrestler;
+export default WrestlerList;

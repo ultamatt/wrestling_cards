@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Wrestler from './Wrestler';
+import WrestlerList from './WrestlerList';
 import Clock from './Clock';
 
 const Container = styled.div`
@@ -26,7 +26,7 @@ const Title = styled.h1`
     font-size: 2.5rem;
     font-weight: 700;
 `;
-// 
+//
 // const Paragraph = styled.p`
 //     color: black;
 //     font-size: 1rem;
@@ -63,7 +63,7 @@ const App = () => (
         </Title>
         <Wrapper>
             <Clock/>
-            <Wrestler/>
+            <WrestlerList/>
         </Wrapper>
     </Container>
 );
