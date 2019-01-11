@@ -1,18 +1,35 @@
-export function wrestlerHasErrored(bool) {
+export function wrestlersHaveErrored(bool) {
     return {
-        type: 'WRESTLER_HAS_ERRORED',
+        type: 'WRESTLERS_HAVE_ERRORED',
         hasErrored: bool
     };
 }
-export function wrestlerIsLoading(bool) {
+export function wrestlersAreLoading(bool) {
     return {
-        type: 'WRESTLER_IS_LOADING',
+        type: 'WRESTLERS_ARE_LOADING',
         isLoading: bool
     };
 }
-export function wrestlerFetchDataSuccess(wrestler) {
+export function wrestlersFetchDataSuccess(wrestlers) {
     return {
-        type: 'WRESTLER_FETCH_DATA_SUCCESS',
-        wrestler
+        type: 'WRESTLERS_FETCH_DATA_SUCCESS',
+        wrestlers
+    };
+}
+
+export function wrestlersFetchData(url) {
+    return (dispatch) => {
+        dispatch(wrestlersAreLoading(true));
+        fetch(url)
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                dispatch(wrestlersAreLoading(false));
+                return response;
+            })
+            .then((response) => response.json())
+            .then((wrestlers) => dispatch(wrestlersFetchDataSuccess(wrestlers.data)))
+            .catch(() => dispatch(wrestlersHaveErrored(true)));
     };
 }

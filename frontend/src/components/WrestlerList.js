@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { wrestlersFetchData } from '../actions/index';
 
 const Container = styled.div`
     display: flex;
@@ -27,44 +30,15 @@ const Name = styled.h1`
 `;
 
 class WrestlerList extends Component {
-    state = {
-        wrestlers: [
-            {
-                id: 1,
-                name: 'Macho Man'
-            },{
-                id: 2,
-                name: 'Hulk Hogan'
-            },{
-                id: 3,
-                name: 'John Cena'
-            }
-        ],
-        hasErrored: false,
-        isLoading: false
-    };
+    state = {};
 
     componentDidMount() {
-        this.fetchData('http://localhost:3001');
+        const { fetchData } = this.props;
+        fetchData('http://localhost:3001');
     }
 
-    fetchData = (url) => {
-        this.setState({ isLoading: true });
-        fetch(url)
-            .then((response) => {
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-                this.setState({ isLoading: false });
-                return response;
-            })
-            .then((response) => response.json())
-            .then((wrestlers) => this.setState({ wrestlers:wrestlers.data })) // ES6 property value shorthand for { items: items }
-            .catch(() => this.setState({ hasErrored: true }));
-    };
-
     render() {
-        const { wrestlers, hasErrored, isLoading } = this.state;
+        const { wrestlers, hasErrored, isLoading } = this.props;
 
         if (hasErrored) {
             return (<p>Sorry! There was an error loading the items</p>);
@@ -84,7 +58,27 @@ class WrestlerList extends Component {
             </Container>
         );
     }
-
 };
 
-export default WrestlerList;
+WrestlerList.propTypes = {
+    fetchData: PropTypes.func.isRequired,
+    wrestlers: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+    hasErrored: PropTypes.bool.isRequired,
+    isLoading: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = (state) => {
+    return {
+        wrestlers: state.wrestlers,
+        hasErrored: state.itemsHasErrored,
+        isLoading: state.itemsIsLoading
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(wrestlersFetchData(url))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WrestlerList);

@@ -63,7 +63,7 @@ const App = () => (
         </Title>
         <Wrapper>
             <Clock/>
-            <WrestlerList/>
+            <WrestlerList />
         </Wrapper>
     </Container>
 );
