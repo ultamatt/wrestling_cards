@@ -16,13 +16,16 @@ After we have a simple backend setup, it'll be good to prop up a simple react ba
 
 ### TODO
 - [X] Make a React based SPA and serve it
-- [ ] Have the front end call the simple backend.
-- [ ] Display the contents of the call via a custom component
+- [X] Have the front end call the simple backend.
+- [X] Implement Redux for smarter API implementation
+- [X] Display the contents of the call via a custom component
 
 ## Better backend
 Now that we have the basics, let's make it such that we can also interact with these wrestlering card
 
 ### TODO
+- [ ] Implement Linting for our code
+- [ ] Implement Unit Testing for our code
 - [ ] Enhance the wrestling data with a 'fun fact', a picture, and the titles (if any)
 - [ ] Make an endpoint to update the data about a wrestler
 
@@ -33,7 +36,7 @@ We can improve the frontend code to provide for more interactivity.
 - [ ] Make each wrestler into a 'card'
 - [ ] Make each 'card' dismiss-able
 - [ ] Show a visual 'stack' of cards
-- [ ] Make each card editable to change 'fun fact', picture, and titles 
+- [ ] Make each card editable to change 'fun fact', picture, and titles
 
 ## Expert backend
 What if we could get information that was super up to date at a regular interval?
