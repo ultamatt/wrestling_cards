@@ -32,8 +32,8 @@ describe('API endpoint /wrestlers', () => {
             expect(res).to.have.status(200);
             expect(res).to.be.json;
             expect(res.body).to.be.an('object');
-            expect(res.body.data).to.be.an('array');
-            expect(res.body.data[0].name).to.be.string('Kevin');
+            expect(res.body.data).to.be.an('object');
+            expect(res.body.data.name).to.be.string('Kevin');
         }));
 
     // GET - Invalid path
@@ -47,15 +47,16 @@ describe('API endpoint /wrestlers', () => {
         }));
 
     // POST - Add new wrestler
-    // it('should add new wrestler', () => chai.request(app)
-    //     .post('/wrestlers')
-    //     .send({
-    //         name: 'Blue Meanie',
-    //     })
-    //     .then((res) => {
-    //         expect(res).to.have.status(201);
-    //         expect(res).to.be.json;
-    //         expect(res.body).to.be.an('object');
-    //         expect(res.body.results).to.be.an('array').that.includes('Blue Meanie');
-    //     }));
+    it('should add new wrestler', () => chai.request(app)
+        .post('/wrestler')
+        .send({
+            id: 100,
+            name: 'Pretty Peter Avalon',
+        })
+        .then((res) => {
+            expect(res).to.have.status(200);
+            expect(res).to.be.json;
+            expect(res.body).to.be.an('object');
+            expect(res.body.data.name).to.be.string('Pretty Peter Avalon');
+        }));
 });
