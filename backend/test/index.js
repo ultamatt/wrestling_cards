@@ -59,4 +59,28 @@ describe('API endpoint /wrestlers', () => {
             expect(res.body).to.be.an('object');
             expect(res.body.data.name).to.be.string('Pretty Peter Avalon');
         }));
+
+    // PUT - Update wrestler
+    it('should update wrestler', () => chai.request(app)
+        .put('/wrestler/100')
+        .send({
+            id: 100,
+            name: 'Ugly Peter Avalon',
+        })
+        .then((res) => {
+            expect(res).to.have.status(200);
+            expect(res).to.be.json;
+            expect(res.body).to.be.an('object');
+            expect(res.body.data.name).to.be.string('Ugly Peter Avalon');
+        }));
+
+    // PUT - Update wrestler
+    it('should destroy wrestler', () => chai.request(app)
+        .delete('/wrestler/100')
+        .send({})
+        .then((res) => {
+            expect(res).to.have.status(200);
+            expect(res).to.be.json;
+            expect(res.body).to.be.an('object');
+        }));
 });

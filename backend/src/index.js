@@ -37,30 +37,33 @@ const create = (req, res) => {
     return res.json({ message: 'Please pass id and name to create a new wrestler' });
 };
 
-// const update = (req, res) => {
-//     const { id, name } = req.body;
-//     if (id != null && name != null) {
-//         const daWrestler = { id, name };
-//         db.get('wrestlers')
-//             .push(daWrestler)
-//             .write();
-//         wrestlers.singles.push(daWrestler);
-//         return res.json(daWrestler);
-//     }
-//     res.status(400);
-//     return res.json({ message: 'Please pass id and name to create a new wrestler' });
-// };
-//
-// const destroy = (req, res) => {
-//     const { id, name } = req.body;
-//     if (id != null && name != null) {
-//         const daWrestler = { id, name };
-//         wrestlers.singles.push(daWrestler);
-//         return res.json(daWrestler);
-//     }
-//     res.status(400);
-//     return res.json({ message: 'Please pass id and name to create a new wrestler' });
-// };
+const update = (req, res) => {
+    const { id } = req.params;
+    const { name } = req.body;
+    let returnable = null;
+    if (id != null) {
+        returnable = db.get('wrestlers')
+            .find({ id: parseInt(id, 10) })
+            .assign({ name })
+            .write();
+        return res.json({ data: returnable });
+    }
+    res.status(400);
+    return res.json({ message: 'Please pass id and name to update a wrestler' });
+};
+
+const destroy = (req, res) => {
+    const { id } = req.params;
+    let returnable = null;
+    if (id != null) {
+        returnable = db.get('wrestlers')
+            .remove({ id: parseInt(id, 10) })
+            .write();
+        return res.json({ data: returnable });
+    }
+    res.status(400);
+    return res.json({ message: 'Please pass id and name to update a wrestler' });
+};
 
 app.use(cors());
 app.use(bodyParser.json()); // support json encoded bodies
@@ -69,8 +72,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.get('/wrestler', list);
 app.get('/wrestler/:id', list);
 app.post('/wrestler', create);
-// app.put('/wrestler', update);
-// app.delete('/wrestler', destroy);
+app.put('/wrestler/:id', update);
+app.delete('/wrestler/:id', destroy);
 
 app.listen(3001, () => console.log('Example app listening on port 3001!')); // eslint-disable-line no-console
 
