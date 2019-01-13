@@ -1,0 +1,19 @@
+{
+    "extends": "airbnb-base",
+    "plugins": ["prettier", "mocha"],
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+    "env": {
+        "node": true,
+        "mocha": true,
+        "es6": true
+    },
+    "rules":{
+        "indent": ["error", 4],
+        "space-before-function-paren": "off",
+        "import/no-extraneous-dependencies": [error, { devDependencies: true }],
+        "no-unused-expressions": 0,
+        "mocha/no-exclusive-tests": "error"
+    }
+}

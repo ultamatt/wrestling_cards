@@ -1,10 +1,10 @@
 {
   "name": "wrestling_cards_backend",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A full stack application to let you see some cool wrestlers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recursive",
     "start": "node ./src/index.js",
     "lint": "eslint ./src/**/**.js",
     "lint:fix": "eslint ./src/**/**.js --fix",
@@ -26,8 +26,13 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "eslint": "^5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-mocha": "^5.2.1",
+    "eslint-plugin-prettier": "^3.0.0",
+    "mocha": "^5.2.0"
   }
 }

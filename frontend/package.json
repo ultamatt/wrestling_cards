@@ -1,5 +1,5 @@
 {
-    "name": "wrestling_cards_backend",
+    "name": "wrestling_cards_frontend",
     "version": "0.0.1",
     "description": "A sample simple front end for wrestling cards",
     "main": "src/index.js",

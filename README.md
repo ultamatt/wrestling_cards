@@ -24,8 +24,9 @@ After we have a simple backend setup, it'll be good to prop up a simple react ba
 Now that we have the basics, let's make it such that we can also interact with these wrestlering card
 
 ### TODO
-- [ ] Implement Linting for our code
-- [ ] Implement Unit Testing for our code
+- [X] Implement Linting for our code
+- [X] Implement Unit Testing for our code
+- [ ] Add Routing
 - [ ] Enhance the wrestling data with a 'fun fact', a picture, and the titles (if any)
 - [ ] Make an endpoint to update the data about a wrestler
 
