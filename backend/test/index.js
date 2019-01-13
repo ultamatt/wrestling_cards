@@ -18,12 +18,22 @@ describe('API endpoint /wrestlers', () => {
 
     // GET - List all wrestlers
     it('should return all wrestlers', () => chai.request(app)
-        .get('/')
+        .get('/wrestler')
         .then((res) => {
             expect(res).to.have.status(200);
             expect(res).to.be.json;
             expect(res.body).to.be.an('object');
             expect(res.body.data).to.be.an('array');
+        }));
+
+    it('should return kevin owens', () => chai.request(app)
+        .get('/wrestler/1')
+        .then((res) => {
+            expect(res).to.have.status(200);
+            expect(res).to.be.json;
+            expect(res.body).to.be.an('object');
+            expect(res.body.data).to.be.an('array');
+            expect(res.body.data[0].name).to.be.string('Kevin');
         }));
 
     // GET - Invalid path
