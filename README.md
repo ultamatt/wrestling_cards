@@ -34,7 +34,10 @@ Now that we have the basics, let's make it such that we can also interact with t
 We can improve the frontend code to provide for more interactivity.
 
 ### TODO
-- [ ] Make each wrestler into a 'card'
+- [X] Make it so you can delete a wrestler
+- [X] Make each wrestler into a 'card'
+- [ ] Add ability to create a new wrestler
+- [ ] Show one card at a time
 - [ ] Make each 'card' dismiss-able
 - [ ] Show a visual 'stack' of cards
 - [ ] Make each card editable to change 'fun fact', picture, and titles

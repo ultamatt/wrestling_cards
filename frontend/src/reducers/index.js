@@ -22,6 +22,8 @@ export function wrestlers(state = [], action) {
     switch (action.type) {
     case 'WRESTLERS_FETCH_DATA_SUCCESS':
         return action.wrestlers;
+    case 'WRESTLERS_DESTROY_DATA_SUCCESS':
+        return state.filter((it)=>it.id !== action.id);
     default:
         return state;
     }

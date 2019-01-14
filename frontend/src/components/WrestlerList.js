@@ -24,7 +24,7 @@ class WrestlerList extends Component {
 
         return (<Content>
             {wrestlers.map((wrestler) => (
-                <Wrestler key={wrestler.id} name={wrestler.name}/>
+                <Wrestler key={wrestler.id} id={wrestler.id} name={wrestler.name}/>
             ))}
         </Content>
         );

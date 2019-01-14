@@ -1,8 +1,6 @@
 const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
-
-const _ = require('lodash');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
@@ -54,6 +52,7 @@ const update = (req, res) => {
 
 const destroy = (req, res) => {
     const { id } = req.params;
+    console.log(`Someone is trying to destroy ${id}`);
     let returnable = null;
     if (id != null) {
         returnable = db.get('wrestlers')
