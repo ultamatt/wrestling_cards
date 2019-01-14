@@ -86,6 +86,7 @@
         "webpack-merge": "^4.1.5"
     },
     "dependencies": {
+        "bulma-styled-components": "^1.0.2",
         "cross-env": "^5.2.0",
         "prop-types": "^15.6.2",
         "react": "^16.7.0-alpha.0",

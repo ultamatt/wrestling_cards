@@ -26,9 +26,9 @@ Now that we have the basics, let's make it such that we can also interact with t
 ### TODO
 - [X] Implement Linting for our code
 - [X] Implement Unit Testing for our code
-- [ ] Add Routing
+- [X] Make an endpoint to update the data about a wrestler
+- [X] Make an endpoint to remove a wrestler
 - [ ] Enhance the wrestling data with a 'fun fact', a picture, and the titles (if any)
-- [ ] Make an endpoint to update the data about a wrestler
 
 ## Better frontend
 We can improve the frontend code to provide for more interactivity.

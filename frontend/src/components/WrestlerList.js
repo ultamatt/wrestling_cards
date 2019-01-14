@@ -34,7 +34,7 @@ class WrestlerList extends Component {
 
     componentDidMount() {
         const { fetchData } = this.props;
-        fetchData('http://localhost:3001');
+        fetchData('http://localhost:3001/wrestler');
     }
 
     render() {
