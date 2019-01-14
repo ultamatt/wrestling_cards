@@ -16,6 +16,11 @@ export function wrestlersFetchDataSuccess(wrestlers) {
         wrestlers
     };
 }
+export function wrestlersDestroyDataSuccess() {
+    return {
+        type: 'WRESTLERS_DESTROY_DATA_SUCCESS'
+    };
+}
 
 export function wrestlersFetchData(url) {
     return (dispatch) => {
@@ -30,6 +35,25 @@ export function wrestlersFetchData(url) {
             })
             .then((response) => response.json())
             .then((wrestlers) => dispatch(wrestlersFetchDataSuccess(wrestlers.data)))
+            .catch(() => dispatch(wrestlersHaveErrored(true)));
+    };
+}
+
+export function destroyWrestler(url) {
+    return (dispatch) => {
+        dispatch(wrestlersAreLoading(true));
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                dispatch(wrestlersAreLoading(false));
+                return response;
+            })
+            .then((response) => response.json())
+            .then(() => dispatch(wrestlersDestroyDataSuccess()))
             .catch(() => dispatch(wrestlersHaveErrored(true)));
     };
 }
