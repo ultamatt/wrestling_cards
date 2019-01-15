@@ -1,4 +1,13 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import styled from 'styled-components';
+
+const Time=styled.div`
+  margin-top:10px;
+  margin-right 10px;
+  font-size:12px;
+  color:darkgrey;
+`;
 
 class Clock extends Component {
     state = { currentTime: new Date() }
@@ -25,14 +34,10 @@ class Clock extends Component {
 
     render() {
         const { currentTime } = this.state;
-        const hour    = currentTime.getHours();
-        const minute  = currentTime.getMinutes();
-        const second  = currentTime.getSeconds();
+        const display = moment(currentTime).format('h:mm:ss a');
 
         return (
-            <div className='clock'>
-                {hour}:{minute}:{second}
-            </div>
+            <Time>{display}</Time>
         );
     }
 }
