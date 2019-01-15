@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Content } from 'bulma-styled-components';
-import { wrestlersFetchData } from '../actions/index';
+import { getWrestlers } from '../actions/index';
 import Wrestler from './Wrestler';
+import WrestlerAdd from './WrestlerAdd';
 
 class WrestlerList extends Component {
     state = {};
 
     componentDidMount() {
-        const { getWrestlers } = this.props;
-        getWrestlers('http://localhost:3001/wrestler');
+        const { doGetWrestlers } = this.props;
+        doGetWrestlers('http://localhost:3001/wrestler');
     }
 
     render() {
@@ -23,6 +24,7 @@ class WrestlerList extends Component {
         }
 
         return (<Content>
+            <WrestlerAdd/>
             {wrestlers.map((wrestler) => (
                 <Wrestler key={wrestler.id} id={wrestler.id} name={wrestler.name}/>
             ))}
@@ -32,7 +34,7 @@ class WrestlerList extends Component {
 };
 
 WrestlerList.propTypes = {
-    getWrestlers: PropTypes.func.isRequired,
+    doGetWrestlers: PropTypes.func.isRequired,
     wrestlers: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
     hasErrored: PropTypes.bool.isRequired,
     isLoading: PropTypes.bool.isRequired
@@ -48,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getWrestlers: (url) => dispatch(wrestlersFetchData(url))
+        doGetWrestlers: (url) => dispatch(getWrestlers(url))
     };
 };
 
