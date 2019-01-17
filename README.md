@@ -28,7 +28,8 @@ Now that we have the basics, let's make it such that we can also interact with t
 - [X] Implement Unit Testing for our code
 - [X] Make an endpoint to update the data about a wrestler
 - [X] Make an endpoint to remove a wrestler
-- [ ] Change the id property into a uuid
+- [X] Remove ID requirement on create wrestler
+- [X] Change the id property into a uuid
 - [ ] Enhance the wrestling data with a 'fun fact', a picture, and the titles (if any)
 
 ## Better frontend
@@ -38,7 +39,7 @@ We can improve the frontend code to provide for more interactivity.
 - [X] Make it so you can delete a wrestler
 - [X] Make each wrestler into a 'card'
 - [X] Add ability to create a new wrestler
-- [ ] Clear add form upon submit, Submit on enter key
+- [X] Clear add form upon submit, Submit on enter key
 - [ ] Show one card at a time
 - [ ] Make each 'card' dismiss-able
 - [ ] Show a visual 'stack' of cards

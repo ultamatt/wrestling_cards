@@ -2,203 +2,203 @@
   "wrestlers": [
     {
       "name": "Kevin Owens",
-      "id": 1
+      "id": "92684a24-06be-47cc-9494-bcc96d9a0f51"
     },
     {
       "name": "Chris Jericho",
-      "id": 2
+      "id": "bd0ae5e1-e55c-4c21-be34-55a8d2623d1f"
     },
     {
       "name": "Randy Orton",
-      "id": 3
+      "id": "663d387b-afc6-4342-a323-3a4277248b17"
     },
     {
       "name": "John Cena",
-      "id": 4
+      "id": "a3aaeaf4-3c90-4774-9e7c-837b3a3bc2b3"
     },
     {
       "name": "Blue Meanie",
-      "id": 5
+      "id": "335004cb-5f90-49cf-8de0-23df2d1ec6fd"
     },
     {
       "name": "Hulk Hogan",
-      "id": 6
+      "id": "32f58ad5-4e48-47f6-8180-b861df3e7e50"
     },
     {
       "name": "Kane",
-      "id": 7
+      "id": "675c4491-7952-4cd9-acdf-4ec5bdd5a91c"
     },
     {
       "name": "Undertaker",
-      "id": 8
+      "id": "31f7c42d-2461-4d3a-b6ec-4dbdcf08a991"
     },
     {
       "name": "Shawn Michaels",
-      "id": 9
+      "id": "00109d97-bbc2-48d3-b3c2-86cffdcd3ab9"
     },
     {
       "name": "Triple H",
-      "id": 10
+      "id": "d91e3ea0-b33c-4d74-99f2-761d43ec3182"
     },
     {
       "name": "Eddie Guerrero",
-      "id": 11
+      "id": "780a0be5-a620-4eae-86e6-929fa277fe3a"
     },
     {
       "name": "Big Show",
-      "id": 12
+      "id": "0a11f6f5-466d-4388-bc7c-598f22a30955"
     },
     {
       "name": "Bret Hart",
-      "id": 13
+      "id": "ba1c137f-d364-469b-aa9a-f09ee44ae62e"
     },
     {
       "name": "A.J. Styles",
-      "id": 14
+      "id": "dd628f38-03f4-4305-98dc-7b01e4dda090"
     },
     {
       "name": "Brock Lesnar",
-      "id": 15
+      "id": "e9be8326-ce81-41dd-9a1f-56a7873cc9b3"
     },
     {
       "name": "Rey Mysterio",
-      "id": 16
+      "id": "6ae61b38-ab73-4c05-a2f2-b2d59fb8ddc9"
     },
     {
       "name": "Goldberg",
-      "id": 17
+      "id": "76301764-0d08-46b4-92dc-9fe3b3f127f4"
     },
     {
       "name": "Sting",
-      "id": 18
+      "id": "22bcbf39-429a-41ae-af69-b2eb7a47bfc9"
     },
     {
       "name": "Ric Flair",
-      "id": 19
+      "id": "897af374-2b6f-430c-8c92-a0d8fc96acf6"
     },
     {
       "name": "Ricky Steamboat",
-      "id": 20
+      "id": "28861a80-f43e-4813-85d2-d34d0ec4aa66"
     },
     {
       "name": "Jimmy Snuka",
-      "id": 21
+      "id": "9141f4e8-3127-44fc-ae7b-4534df90aea4"
     },
     {
       "name": "The Rock",
-      "id": 22
+      "id": "bdc743af-eb0e-4619-9a9f-a61668131d34"
     },
     {
       "name": "Edge",
-      "id": 23
+      "id": "4aef5514-27fd-4bdf-93c2-e974f9b99d56"
     },
     {
       "name": "RVD",
-      "id": 24
+      "id": "8f7d6ede-ea92-4ff9-8ea4-fc6ff90795b0"
     },
     {
       "name": "Batista",
-      "id": 25
+      "id": "e17cf470-f165-4686-8a59-b85f75e8f876"
     },
     {
       "name": "Owen Hart",
-      "id": 26
+      "id": "1f6140f3-e29b-41ef-b5fe-711867a07f17"
     },
     {
       "name": "Stone Cold",
-      "id": 27
+      "id": "f9fc1172-58b7-4015-8c16-6c1f134bd5a1"
     },
     {
       "name": "Kurt Angle",
-      "id": 28
+      "id": "52d68566-ad20-4997-bd9f-3289f2a60d05"
     },
     {
       "name": "Matt Hardy",
-      "id": 29
+      "id": "b2f3e6b4-e026-4264-bab1-3c75d7c685e5"
     },
     {
       "name": "Jeff Hardy",
-      "id": 30
+      "id": "b4363e99-c6fb-410d-9fd1-7d92ca69dc72"
     },
     {
       "name": "CM Punk",
-      "id": 31
+      "id": "63144a2b-249a-476c-95b3-8f182b6e2ffc"
     },
     {
       "name": "Dusty Rhodes",
-      "id": 32
+      "id": "cc9fe1a8-aa79-45fe-b270-a26362d6cd57"
     },
     {
       "name": "Mick Foley",
-      "id": 33
+      "id": "d7fba4be-d602-439f-9218-5376542c7f0c"
     },
     {
       "name": "Andre The Giant",
-      "id": 34
+      "id": "93bf9e1f-fa55-4676-b3ab-35da365d3731"
     },
     {
       "name": "Roddy Piper",
-      "id": 35
+      "id": "9e4868d8-ee36-4d08-8593-45b5d4a7b016"
     },
     {
       "name": "The Miz",
-      "id": 36
+      "id": "0beec538-0ec2-42fe-acbc-5201c2abd2b3"
     },
     {
       "name": "The Ultimate Warrior",
-      "id": 37
+      "id": "b189ba81-b205-4b4f-9219-74a82d744e42"
     },
     {
       "name": "Booker T",
-      "id": 38
+      "id": "7fbcb48e-e84b-42e3-96a2-e596577e6161"
     },
     {
-      "name": "Razor",
-      "id": 39
+      "name": "Razor Ramon",
+      "id": "77b8aa7f-9a79-47b3-8d86-a4925b2a639e"
     },
     {
       "name": "Diesel",
-      "id": 40
+      "id": "2f0e6909-2c63-4f21-8fc5-6ab18133e263"
     },
     {
       "name": "Lex Luger",
-      "id": 41
+      "id": "852269fe-8aff-46e4-86cd-22952b971428"
     },
     {
-      "name": "Corbin",
-      "id": 42
+      "name": "Baron Corbin",
+      "id": "a1bdafe6-dc9f-4849-a47c-610bb9021df3"
     },
     {
-      "name": "Rollins",
-      "id": 43
+      "name": "Seth Rollins",
+      "id": "334f11d4-d72b-4cc7-b180-a5138cd70cd6"
     },
     {
       "name": "Rusev",
-      "id": 44
+      "id": "2b643255-5113-4789-9aff-70945ca8703f"
     },
     {
       "name": "Regins",
-      "id": 45
+      "id": "ed1f48f5-33a5-4176-aa0e-5fbb07c0aafd"
     },
     {
       "name": "Zayn",
-      "id": 46
+      "id": "06f0b5d9-e932-4fb3-8b2d-eb01b283e2fb"
     },
     {
       "name": "Ziggler",
-      "id": 47
+      "id": "8a327c77-8daf-4d62-8da0-668639a865ea"
     },
     {
       "name": "Dean Ambrose",
-      "id": 48
+      "id": "35c8d5c9-3312-4bcf-9f8c-b91c6f0977a3"
     },
     {
       "name": "Strowman",
-      "id": 49
+      "id": "60805b49-9d8a-4fd8-9de4-d39a8372041a"
     },
     {
       "name": "Finn Balor",
-      "id": 50
+      "id": "b786e63b-9ad3-4ef0-8317-acbe23ce8489"
     }
   ]
 }

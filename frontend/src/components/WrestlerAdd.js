@@ -9,7 +9,8 @@ class WrestlerAdd extends Component {
     constructor(props){
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.state = { id:0, name:"" };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = { name:"" };
     }
 
     handleChange(event) {
@@ -17,26 +18,34 @@ class WrestlerAdd extends Component {
         this.setState({name:event.target.value});
     }
 
-    render() {
+    handleSubmit(event){
+        event.preventDefault();
         const { doAddWrestler } = this.props;
-        const { id, name } = this.state;
+        const { name } = this.state;
+        doAddWrestler('http://localhost:3001/wrestler', {name});
+        this.setState({name:""});
+    }
+
+    render() {
+        const { name } = this.state;
         return (
             <Box>
-                <Field className="is-grouped">
-                    <Control className="is-expanded">
-                        <Input required type="text" placeholder="Enter a Wrestler's Name" value={name} onChange={this.handleChange}/>
-                    </Control>
-                    <Control>
-                        <Button className="button is-primary" onClick={() => {doAddWrestler('http://localhost:3001/wrestler', {id, name});}}> Add New Wrestler</Button>
-                    </Control>
-                </Field>
+                <form onSubmit={this.handleSubmit}>
+                    <Field className="is-grouped">
+                        <Control className="is-expanded">
+                            <Input required type="text" placeholder="Enter a Wrestler's Name" value={name} onChange={this.handleChange}/>
+                        </Control>
+                        <Control>
+                            <Button className="button is-primary" type="submit" > Add New Wrestler</Button>
+                        </Control>
+                    </Field>
+                </form>
             </Box>
         );
     }
 };
 
 const mapStateToProps = (state, props) =>({
-    id:props.id,
     name: props.name
 });
 

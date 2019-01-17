@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
+const uuid = require('uuid');
 
 const adapter = new FileSync('db.json');
 const db = low(adapter);
@@ -13,7 +14,7 @@ const list = (req, res) => {
     let returnable = null;
     if (req.params.id != null) {
         returnable = db.get('wrestlers')
-            .find({ id: parseInt(req.params.id, 10) })
+            .find({ id: req.params.id })
             .value();
         return res.json({ data: returnable });
     }
@@ -23,9 +24,9 @@ const list = (req, res) => {
 };
 
 const create = (req, res) => {
-    const { id, name } = req.body;
-    if (id != null && name != null) {
-        const daWrestler = { id: parseInt(id, 10), name };
+    const { name } = req.body;
+    if (name != null) {
+        const daWrestler = { id: uuid.v4(), name };
         db.get('wrestlers')
             .push(daWrestler)
             .write();
@@ -41,7 +42,7 @@ const update = (req, res) => {
     let returnable = null;
     if (id != null) {
         returnable = db.get('wrestlers')
-            .find({ id: parseInt(id, 10) })
+            .find({ id })
             .assign({ name })
             .write();
         return res.json({ data: returnable });
@@ -52,11 +53,10 @@ const update = (req, res) => {
 
 const destroy = (req, res) => {
     const { id } = req.params;
-    console.log(`Someone is trying to destroy ${id}`);
     let returnable = null;
     if (id != null) {
         returnable = db.get('wrestlers')
-            .remove({ id: parseInt(id, 10) })
+            .remove({ id })
             .write();
         return res.json({ data: returnable });
     }
