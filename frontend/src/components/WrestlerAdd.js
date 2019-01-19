@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Box, Field, Control, Input, Button } from 'bulma-styled-components';
+import { Box, Button } from 'react-bulma-components';
+import { Field, Input, Label, Control } from 'react-bulma-components/lib/components/form';
 import { addWrestler } from '../actions/index';
 
 class WrestlerAdd extends Component {
@@ -32,11 +33,12 @@ class WrestlerAdd extends Component {
             <Box>
                 <form onSubmit={this.handleSubmit}>
                     <Field className="is-grouped">
+                        <Label>Add a New Wrestler</Label>
                         <Control className="is-expanded">
                             <Input required type="text" placeholder="Enter a Wrestler's Name" value={name} onChange={this.handleChange}/>
                         </Control>
                         <Control>
-                            <Button className="button is-primary" type="submit" > Add New Wrestler</Button>
+                            <Button className="button is-primary" type="submit"> Create </Button>
                         </Control>
                     </Field>
                 </form>

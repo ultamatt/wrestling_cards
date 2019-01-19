@@ -1,28 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container, Section, Navbar, NavbarItem } from 'bulma-styled-components';
+import { Container, Navbar, Content } from 'react-bulma-components/full';
 import WrestlerList from './WrestlerList';
 import Clock from './Clock';
 
 const H1 = styled.h1`
-  margin-left:10px;
   font-size:24px;
   font-weight:bold;
 `;
 
 const App = () => (
     <Container>
-        <Navbar className="is-transparent">
+        <Navbar transparent>
             <Navbar.Brand>
-                <NavbarItem><H1>Wrestler Cards</H1></NavbarItem>
+                <Navbar.Item renderAs="a" href="#"><H1>Wrestler Cards</H1></Navbar.Item>
             </Navbar.Brand>
-            <Navbar.End>
-                <Clock/>
-            </Navbar.End>
+            <Navbar.Menu>
+                <Navbar.Container position="end">
+                    <Navbar.Item href="#"><Clock/></Navbar.Item>
+                </Navbar.Container>
+            </Navbar.Menu>
         </Navbar>
-        <Section>
-            <WrestlerList />
-        </Section>
+        <Content>
+            <WrestlerList/>
+        </Content>
     </Container>
 );
 

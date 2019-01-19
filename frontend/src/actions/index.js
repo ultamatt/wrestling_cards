@@ -22,6 +22,11 @@ export function wrestlersAddSuccess(wrestler) {
         wrestler
     };
 }
+export function wrestlersSelectSuccess() {
+    return {
+        type: 'WRESTLERS_SELECT_DATA_SUCCESS'
+    };
+}
 export function wrestlersDestroySuccess(id) {
     return {
         type: 'WRESTLERS_DESTROY_DATA_SUCCESS',
@@ -66,6 +71,12 @@ export function getWrestlers(url) {
             .then((response) => response.json())
             .then((wrestlers) => dispatch(wrestlersFetchSuccess(wrestlers.data)))
             .catch(() => dispatch(wrestlersHaveErrored(true)));
+    };
+}
+
+export function selectWrestler(){
+    return (dispatch) => {
+        dispatch(wrestlersSelectSuccess());
     };
 }
 

@@ -30,7 +30,8 @@ Now that we have the basics, let's make it such that we can also interact with t
 - [X] Make an endpoint to remove a wrestler
 - [X] Remove ID requirement on create wrestler
 - [X] Change the id property into a uuid
-- [ ] Enhance the wrestling data with a 'fun fact', a picture, and the titles (if any)
+- [ ] Enhance the wrestling data with a 'fun fact'
+- [ ] Enhance the wrestling data with a picture
 
 ## Better frontend
 We can improve the frontend code to provide for more interactivity.
@@ -50,6 +51,11 @@ What if we could get information that was super up to date at a regular interval
 
 ### TODO
 - [ ] Make a scraper for this thing: https://en.wikipedia.org/wiki/List_of_WWE_personnel
+
+## Expert frontend
+
+### TODO
+- [ ] Add animations for all the stuff
 
 ## CD/CI
 

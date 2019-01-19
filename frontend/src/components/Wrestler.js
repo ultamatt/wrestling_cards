@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Card, Delete } from 'bulma-styled-components';
+import Card from 'react-bulma-components/lib/components/card';
+import Button from 'react-bulma-components/lib/components/button';
 import { destroyWrestler } from '../actions/index';
 
 class Wrestler extends Component {
     state = {};
 
     render() {
-        const { id, name, doDestroyWrestler } = this.props;
+        const { id, name, selected, doDestroyWrestler } = this.props;
         return (
             <Card>
                 <Card.Header>
                     <Card.Header.Title>
-                        {name}
+                        {name} {selected}
                     </Card.Header.Title>
                     <Card.Header.Icon>
-                        <Delete onClick={() => {doDestroyWrestler('http://localhost:3001/wrestler', id);}}/>
+                        <Button onClick={() => {doDestroyWrestler('http://localhost:3001/wrestler', id);}}>X</Button>
                     </Card.Header.Icon>
                 </Card.Header>
             </Card>
@@ -31,9 +32,14 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 Wrestler.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired, // eslint-disable-line react/forbid-prop-types
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    selected: PropTypes.bool,
     doDestroyWrestler: PropTypes.func.isRequired
+};
+
+Wrestler.defaultProps = {
+    selected: false
 };
 
 export default connect(null, mapDispatchToProps)(Wrestler);

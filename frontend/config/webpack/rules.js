@@ -1,3 +1,5 @@
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
 module.exports = [
     {
         test: /\.js$/,
@@ -5,6 +7,33 @@ module.exports = [
         use: {
             loader: 'babel-loader'
         }
+    },
+    {
+        test: /\.css$/,
+        use: [{
+            loader: 'style-loader',
+        },
+        {
+            loader: 'css-loader',
+            options: {
+                sourceMap: true,
+            }
+        }]
+    },
+    {
+        test: /\.(scss|sass)$/,
+        use: [{
+            loader: 'style-loader',
+        },
+        {
+            loader: 'css-loader',
+            options: {
+                sourceMap: true,
+            }
+        },
+        {
+            loader: 'sass-loader',
+        }]
     },
     {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
