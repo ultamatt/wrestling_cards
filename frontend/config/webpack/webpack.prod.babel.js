@@ -1,7 +1,7 @@
 import CleanWebpackPlugin from 'clean-webpack-plugin';
+import { DefinePlugin } from 'webpack';
 
 import paths from './paths';
-import rules from './rules';
 
 module.exports = {
     mode: 'production',
@@ -11,6 +11,9 @@ module.exports = {
         chunkFilename: '[name].[chunkhash].js'
     },
     plugins: [
+        new DefinePlugin({
+            __BackendUrl__:JSON.stringify("http://localhost")
+        }),
         new CleanWebpackPlugin([paths.outputPath.split('/').pop()], {
             root: paths.root
         })

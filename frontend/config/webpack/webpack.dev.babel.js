@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import Jarvis from 'webpack-jarvis';
 import paths from './paths';
-import rules from './rules';
 
 module.exports = {
     mode: 'development',
@@ -32,6 +31,9 @@ module.exports = {
         historyApiFallback: true
     },
     plugins: [
+        new webpack.DefinePlugin({
+            __BackendUrl__:JSON.stringify("http://localhost")
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new Jarvis({
             port: 1337

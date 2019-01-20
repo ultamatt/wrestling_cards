@@ -7,6 +7,7 @@ import Section from 'react-bulma-components/lib/components/section';
 import { getWrestlers, selectWrestler } from '../actions/index';
 import Wrestler from './Wrestler';
 import WrestlerAdd from './WrestlerAdd';
+/* global __BackendUrl__ */
 
 class WrestlerList extends Component {
     state = {};
@@ -18,7 +19,7 @@ class WrestlerList extends Component {
 
     componentDidMount() {
         const { doGetWrestlers } = this.props;
-        doGetWrestlers('http://localhost:3001/wrestler');
+        doGetWrestlers(`${__BackendUrl__ }:3001/wrestler`);
     }
 
     selectOne(event){
@@ -40,17 +41,17 @@ class WrestlerList extends Component {
             <Section>
                 <WrestlerAdd/>
                 <Columns>
-                    <Columns.Column>
+                    <Columns.Column narrow>
                         <Button onClick={this.selectOne}>Back</Button>
                     </Columns.Column>
-                    <Columns.Column className="is-half has-text-centered">
+                    <Columns.Column className="has-text-centered">
                         {
                             wrestlers.filter((it) => it.selected === true).map((wrestler) => (
                                 <Wrestler key={wrestler.id} id={wrestler.id} name={wrestler.name}/>
                             ))
                         }
                     </Columns.Column>
-                    <Columns.Column>
+                    <Columns.Column narrow>
                         <Button onClick={this.selectOne}>Next</Button>
                     </Columns.Column>
                 </Columns>

@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import Card from 'react-bulma-components/lib/components/card';
 import Button from 'react-bulma-components/lib/components/button';
 import { destroyWrestler } from '../actions/index';
+/* global __BackendUrl__ */
 
 class Wrestler extends Component {
     state = {};
-
+    
     render() {
         const { id, name, selected, doDestroyWrestler } = this.props;
         return (
@@ -17,7 +18,7 @@ class Wrestler extends Component {
                         {name} {selected}
                     </Card.Header.Title>
                     <Card.Header.Icon>
-                        <Button onClick={() => {doDestroyWrestler('http://localhost:3001/wrestler', id);}}>X</Button>
+                        <Button onClick={() => {doDestroyWrestler(`${__BackendUrl__ }:3001/wrestler`, id);}}>X</Button>
                     </Card.Header.Icon>
                 </Card.Header>
             </Card>

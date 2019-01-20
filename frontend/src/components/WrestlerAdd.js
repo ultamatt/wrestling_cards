@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Box, Button } from 'react-bulma-components';
-import { Field, Input, Label, Control } from 'react-bulma-components/lib/components/form';
+import { Field, Input, Control } from 'react-bulma-components/lib/components/form';
 import { addWrestler } from '../actions/index';
+/* global __BackendUrl__ */
 
 class WrestlerAdd extends Component {
 
@@ -23,7 +24,7 @@ class WrestlerAdd extends Component {
         event.preventDefault();
         const { doAddWrestler } = this.props;
         const { name } = this.state;
-        doAddWrestler('http://localhost:3001/wrestler', {name});
+        doAddWrestler(`${__BackendUrl__ }:3001/wrestler`, {name});
         this.setState({name:""});
     }
 
@@ -33,7 +34,6 @@ class WrestlerAdd extends Component {
             <Box>
                 <form onSubmit={this.handleSubmit}>
                     <Field className="is-grouped">
-                        <Label>Add a New Wrestler</Label>
                         <Control className="is-expanded">
                             <Input required type="text" placeholder="Enter a Wrestler's Name" value={name} onChange={this.handleChange}/>
                         </Control>

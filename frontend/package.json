@@ -1,6 +1,6 @@
 {
     "name": "wrestling_cards_frontend",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A sample simple front end for wrestling cards",
     "main": "src/index.js",
     "scripts": {
