@@ -41,7 +41,7 @@ We can improve the frontend code to provide for more interactivity.
 - [X] Make each wrestler into a 'card'
 - [X] Add ability to create a new wrestler
 - [X] Clear add form upon submit, Submit on enter key
-- [ ] Show one card at a time
+- [X] Show one card at a time
 - [ ] Make each 'card' dismiss-able
 - [ ] Show a visual 'stack' of cards
 - [ ] Make each card editable to change 'fun fact', picture, and titles
@@ -62,4 +62,4 @@ What if we could get information that was super up to date at a regular interval
 It might be nice to make this thing constantly update and put itself onto the internet or something.
 
 ### TODO
-- [ ] Using some sort of CD/CI service, put this up somewhere
+- [X] Using some sort of CD/CI service, put this up somewhere

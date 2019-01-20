@@ -12,7 +12,7 @@ module.exports = {
     },
     plugins: [
         new DefinePlugin({
-            __BackendUrl__:JSON.stringify("http://localhost")
+            __BackendUrl__:JSON.stringify("http://wrestlecards.com")
         }),
         new CleanWebpackPlugin([paths.outputPath.split('/').pop()], {
             root: paths.root
