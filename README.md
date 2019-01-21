@@ -59,7 +59,7 @@ What if we could get information that was super up to date at a regular interval
 
 ## CD/CI
 
-It might be nice to make this thing constantly update and put itself onto the internet or something.
+It might be nice to make this thing constantly update and put itself onto the internet or something. 
 
 ### TODO
 - [X] Using some sort of CD/CI service, put this up somewhere
