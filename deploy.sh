@@ -1,8 +1,9 @@
 #!/bin/bash
+pwd=$(pwd)
 
-cd $0/frontend
+cd $pwd/frontend
 npm install
 npm run build
 
-cd $0/backend
+cd $pwd/backend
 npm install
