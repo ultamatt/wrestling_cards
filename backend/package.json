@@ -26,6 +26,7 @@
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "lowdb": "^1.0.0",
+    "multer": "^1.4.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

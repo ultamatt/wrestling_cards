@@ -47,7 +47,11 @@ class WrestlerList extends Component {
                     <Columns.Column className="has-text-centered">
                         {
                             wrestlers.filter((it) => it.selected === true).map((wrestler) => (
-                                <Wrestler key={wrestler.id} id={wrestler.id} name={wrestler.name}/>
+                                <Wrestler key={wrestler.id}
+                                    id={wrestler.id}
+                                    name={wrestler.name}
+                                    description={wrestler.description}
+                                    picture={wrestler.picture}/>
                             ))
                         }
                     </Columns.Column>

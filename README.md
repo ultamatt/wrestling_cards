@@ -30,8 +30,9 @@ Now that we have the basics, let's make it such that we can also interact with t
 - [X] Make an endpoint to remove a wrestler
 - [X] Remove ID requirement on create wrestler
 - [X] Change the id property into a uuid
-- [ ] Enhance the wrestling data with a 'fun fact'
-- [ ] Enhance the wrestling data with a picture
+- [X] Enhance the wrestling data with a 'fun fact'
+- [X] Enhance the wrestling data with a picture
+- [X] Add route to upload image
 
 ## Better frontend
 We can improve the frontend code to provide for more interactivity.
@@ -42,14 +43,19 @@ We can improve the frontend code to provide for more interactivity.
 - [X] Add ability to create a new wrestler
 - [X] Clear add form upon submit, Submit on enter key
 - [X] Show one card at a time
+- [X] Make it so you can upload an image per wrestler
+- [ ] Make 'Next' and 'Back' work
 - [ ] Make each 'card' dismiss-able
 - [ ] Show a visual 'stack' of cards
-- [ ] Make each card editable to change 'fun fact', picture, and titles
+- [ ] Make each card editable to change 'fun fact'
+- [ ] Use Deloybot badge
+- [ ] Add link to source code in my github
 
 ## Expert backend
 What if we could get information that was super up to date at a regular interval?
 
 ### TODO
+- [ ] Make a subroutine to resize pictures
 - [ ] Make a scraper for this thing: https://en.wikipedia.org/wiki/List_of_WWE_personnel
 
 ## Expert frontend
@@ -59,7 +65,8 @@ What if we could get information that was super up to date at a regular interval
 
 ## CD/CI
 
-It might be nice to make this thing constantly update and put itself onto the internet or something. 
+It might be nice to make this thing constantly update and put itself onto the internet or something.
 
 ### TODO
-- [X] Using some sort of CD/CI service, put this up somewhere
+- [X] Integrate CD/CI with deploybot
+- [X] Have deploybot automatically deploy to wrestlecards.com

@@ -30,6 +30,14 @@ export function wrestlers(state = [], action) {
         });
     case 'WRESTLERS_ADD_DATA_SUCCESS':
         return [...state, action.wrestler];
+    case 'WRESTLERS_UPDATE_DATA_SUCCESS':
+        return state.map((it) => {
+            if(it.id === action.wrestler.id){
+
+                return {...action.wrestler, selected:true};
+            }
+            return {...it, selected:false};
+        });
     case 'WRESTLERS_SELECT_DATA_SUCCESS':
         return state.map((it, daIndex) => {
             if(daIndex === randomIndex){

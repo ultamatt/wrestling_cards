@@ -22,6 +22,12 @@ export function wrestlersAddSuccess(wrestler) {
         wrestler
     };
 }
+export function wrestlersUpdateSuccess(wrestler) {
+    return {
+        type: 'WRESTLERS_UPDATE_DATA_SUCCESS',
+        wrestler
+    };
+}
 export function wrestlersSelectSuccess() {
     return {
         type: 'WRESTLERS_SELECT_DATA_SUCCESS'
@@ -31,6 +37,26 @@ export function wrestlersDestroySuccess(id) {
     return {
         type: 'WRESTLERS_DESTROY_DATA_SUCCESS',
         id
+    };
+}
+
+export function uploadImage(url, data) {
+    return (dispatch) => {
+        dispatch(wrestlersAreLoading(true));
+        fetch(url, {
+            method:'POST',
+            body:data
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                dispatch(wrestlersAreLoading(false));
+                return response;
+            })
+            .then((response) => response.json())
+            .then((wrestler) => dispatch(wrestlersUpdateSuccess(wrestler.data)))
+            .catch(() => dispatch(wrestlersHaveErrored(true)));
     };
 }
 

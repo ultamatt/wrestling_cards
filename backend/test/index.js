@@ -65,6 +65,7 @@ describe('API endpoint /wrestlers', () => {
         .put(`/wrestler/${newWrestlerId}`)
         .send({
             name: 'Ugly Peter Avalon',
+            description: 'Hes a really really ugly guy',
         })
         .then((res) => {
             expect(res).to.have.status(200);
