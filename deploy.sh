@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd /home/wrestling_cards/%RELEASE_ID%/frontend
+cd /home/wrestling_cards/$RELEASE/frontend
 npm install
 npm run build
 
-cd /home/wrestling_cards/%RELEASE_ID%/backend
+cd /home/wrestling_cards/$RELEASE/backend
 npm install
