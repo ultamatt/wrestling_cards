@@ -14,7 +14,8 @@ class WrestlerList extends Component {
 
     constructor(props){
         super(props);
-        this.selectOne = this.selectOne.bind(this);
+        this.selectBack = this.selectBack.bind(this);
+        this.selectNext = this.selectNext.bind(this);
     }
 
     componentDidMount() {
@@ -22,10 +23,16 @@ class WrestlerList extends Component {
         doGetWrestlers(`${__BackendUrl__ }:3001/wrestler`);
     }
 
-    selectOne(event){
+    selectBack(event){
         event.preventDefault();
         const { doSelectWrestler } = this.props;
-        doSelectWrestler();
+        doSelectWrestler('back');
+    }
+
+    selectNext(event){
+        event.preventDefault();
+        const { doSelectWrestler } = this.props;
+        doSelectWrestler('next');
     }
 
     render() {
@@ -42,21 +49,25 @@ class WrestlerList extends Component {
                 <WrestlerAdd/>
                 <Columns>
                     <Columns.Column narrow>
-                        <Button onClick={this.selectOne}>Back</Button>
+                        <Button onClick={this.selectBack}>Back</Button>
                     </Columns.Column>
-                    <Columns.Column className="has-text-centered">
-                        {
-                            wrestlers.filter((it) => it.selected === true).map((wrestler) => (
-                                <Wrestler key={wrestler.id}
-                                    id={wrestler.id}
-                                    name={wrestler.name}
-                                    description={wrestler.description}
-                                    picture={wrestler.picture}/>
-                            ))
-                        }
+                    <Columns.Column>
+                        <Columns is-12>
+                            <Columns.Column className="is-offset-3 is-6 has-text-centered">
+                                {
+                                    wrestlers.filter((it) => it.selected === true).map((wrestler) => (
+                                        <Wrestler key={wrestler.id}
+                                            id={wrestler.id}
+                                            name={wrestler.name}
+                                            description={wrestler.description}
+                                            picture={wrestler.picture}/>
+                                    ))
+                                }
+                            </Columns.Column>
+                        </Columns>
                     </Columns.Column>
                     <Columns.Column narrow>
-                        <Button onClick={this.selectOne}>Next</Button>
+                        <Button onClick={this.selectNext}>Next</Button>
                     </Columns.Column>
                 </Columns>
             </Section>
@@ -88,7 +99,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         doGetWrestlers: (url) => dispatch(getWrestlers(url)),
-        doSelectWrestler: (url) => dispatch(selectWrestler(url))
+        doSelectWrestler: (action) => dispatch(selectWrestler(action))
     };
 };
 

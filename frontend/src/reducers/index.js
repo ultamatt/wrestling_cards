@@ -19,11 +19,10 @@ export function wrestlersAreLoading(state = false, action) {
 }
 
 export function wrestlers(state = [], action) {
-    const randomIndex = Math.floor(Math.random() * state.length);
     switch (action.type) {
     case 'WRESTLERS_FETCH_DATA_SUCCESS':
         return action.wrestlers.map((it, daIndex) => {
-            if(daIndex === randomIndex){
+            if(daIndex === 0){
                 return {...it, selected:true};
             }
             return {...it, selected:false};
@@ -33,18 +32,39 @@ export function wrestlers(state = [], action) {
     case 'WRESTLERS_UPDATE_DATA_SUCCESS':
         return state.map((it) => {
             if(it.id === action.wrestler.id){
-
+                console.log("Updating state");
+                console.log(action.wrestler);
                 return {...action.wrestler, selected:true};
             }
             return {...it, selected:false};
         });
-    case 'WRESTLERS_SELECT_DATA_SUCCESS':
+    case 'WRESTLERS_SELECT_DATA_SUCCESS':{
+        let selectedIndex = state.map((it, daIndex) => {
+            if(it.selected){
+                return daIndex;
+            }
+            return 0;
+        }).reduce((accumulator, currentValue) => accumulator + currentValue);
+
+        if(action.direction === 'back'){
+            selectedIndex -= 1;
+        } else if(action.direction === 'next'){
+            selectedIndex += 1;
+        }
+
+        if(selectedIndex >= state.length){
+            selectedIndex = 0;
+        } else if(selectedIndex === -1){
+            selectedIndex = state.length - 1;
+        }
+
         return state.map((it, daIndex) => {
-            if(daIndex === randomIndex){
+            if(daIndex === selectedIndex){
                 return {...it, selected:true};
             }
             return {...it, selected:false};
         });
+    }
     case 'WRESTLERS_DESTROY_DATA_SUCCESS':
         return state.filter((it)=>it.id !== action.id);
     default:

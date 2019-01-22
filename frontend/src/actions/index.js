@@ -28,9 +28,10 @@ export function wrestlersUpdateSuccess(wrestler) {
         wrestler
     };
 }
-export function wrestlersSelectSuccess() {
+export function wrestlersSelectSuccess(direction) {
     return {
-        type: 'WRESTLERS_SELECT_DATA_SUCCESS'
+        type: 'WRESTLERS_SELECT_DATA_SUCCESS',
+        direction
     };
 }
 export function wrestlersDestroySuccess(id) {
@@ -46,6 +47,29 @@ export function uploadImage(url, data) {
         fetch(url, {
             method:'POST',
             body:data
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                dispatch(wrestlersAreLoading(false));
+                return response;
+            })
+            .then((response) => response.json())
+            .then((wrestler) => dispatch(wrestlersUpdateSuccess(wrestler.data)))
+            .catch(() => dispatch(wrestlersHaveErrored(true)));
+    };
+}
+
+export function updateWrestler(url, data) {
+    return (dispatch) => {
+        dispatch(wrestlersAreLoading(true));
+        fetch(url, {
+            method:'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body:JSON.stringify(data)
         })
             .then((response) => {
                 if (!response.ok) {
@@ -95,14 +119,16 @@ export function getWrestlers(url) {
                 return response;
             })
             .then((response) => response.json())
-            .then((wrestlers) => dispatch(wrestlersFetchSuccess(wrestlers.data)))
+            .then((wrestlers) => {
+                dispatch(wrestlersFetchSuccess(wrestlers.data));
+            })
             .catch(() => dispatch(wrestlersHaveErrored(true)));
     };
 }
 
-export function selectWrestler(){
+export function selectWrestler(action){
     return (dispatch) => {
-        dispatch(wrestlersSelectSuccess());
+        dispatch(wrestlersSelectSuccess(action));
     };
 }
 

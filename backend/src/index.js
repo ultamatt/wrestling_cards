@@ -45,14 +45,19 @@ const create = (req, res) => {
 
 const update = (req, res) => {
     const { id } = req.params;
-    const { name, description } = req.body;
+    if (!id) {
+        res.status(400);
+        return res.json({ message: 'Please pass id and name or description to update a wrestler' });
+    }
+
+    const { description } = req.body;
+
     let returnable = null;
     if (id != null) {
         returnable = db.get('wrestlers')
             .find({ id })
-            .assign({ name, description })
-            .write()
-            .find({ id });
+            .assign({ description })
+            .write();
         return res.json({ data: returnable });
     }
     res.status(400);

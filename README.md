@@ -44,9 +44,8 @@ We can improve the frontend code to provide for more interactivity.
 - [X] Clear add form upon submit, Submit on enter key
 - [X] Show one card at a time
 - [X] Make it so you can upload an image per wrestler
-- [ ] Make 'Next' and 'Back' work
-- [ ] Make each 'card' dismiss-able
-- [ ] Show a visual 'stack' of cards
+- [X] Make 'Next' and 'Back' work
+- [X] Show a visual 'stack' of cards
 - [ ] Make each card editable to change 'fun fact'
 - [ ] Use Deloybot badge
 - [ ] Add link to source code in my github
