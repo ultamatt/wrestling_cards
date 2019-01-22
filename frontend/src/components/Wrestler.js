@@ -8,26 +8,29 @@ import { updateWrestler, destroyWrestler, uploadImage } from '../actions/index';
 /* global __BackendUrl__ */
 
 class Wrestler extends Component {
-    state = {};
+    state = { newDescription: "" };
 
     constructor(props){
         super(props);
         this.handleFileUpload = this.handleFileUpload.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state.description = props.description;
+        this.state.newDescription = props.description;
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({ newDescription: nextProps.description });
     }
 
     handleChange(event) {
         event.preventDefault();
-
-        this.setState({ description: event.target.value });
+        this.setState({ newDescription: event.target.value });
     }
 
     handleSubmit(){
         const { id, doUpdateWrestler } = this.props;
-        const { description } = this.state;
-        doUpdateWrestler(`${__BackendUrl__ }:3001/wrestler/${id}`, { description });
+        const { newDescription } = this.state;
+        doUpdateWrestler(`${__BackendUrl__ }:3001/wrestler/${id}`, { description:newDescription });
     }
 
     handleFileUpload(event){
@@ -36,12 +39,12 @@ class Wrestler extends Component {
         const data = new FormData();
         data.append('file', event.target.files[0]);
         data.append('id',  id);
-        doUploadWrestlerImage(`${__BackendUrl__ }:3001/wrestler/${id}`, data);
+        doUploadWrestlerImage(`${__BackendUrl__ }:3001/wrestler/${id}/image`, data);
     }
 
     render() {
         const { id, name, picture, doDestroyWrestler } = this.props;
-        const { description } = this.state;
+        const { newDescription } = this.state;
         return (
             <Card>
                 <Card.Header>
@@ -57,7 +60,7 @@ class Wrestler extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <Field className="is-grouped">
                             <Control className="is-expanded">
-                                <Input type="text" value={description} onChange={this.handleChange} />
+                                <Input type="text" value={newDescription} onChange={this.handleChange} />
                             </Control>
                             <Control>
                                 <Button className="button is-primary" type="submit"> update </Button>

@@ -2,8 +2,8 @@
   "wrestlers": [
     {
       "picture": "default_picture.png",
-      "description": "asdf Rule is not a great asdf",
-      "name": "duh man",
+      "description": "Example Description",
+      "name": "Kevin Owens",
       "id": "92684a24-06be-47cc-9494-bcc96d9a0f51"
     },
     {

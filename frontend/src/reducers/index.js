@@ -32,8 +32,6 @@ export function wrestlers(state = [], action) {
     case 'WRESTLERS_UPDATE_DATA_SUCCESS':
         return state.map((it) => {
             if(it.id === action.wrestler.id){
-                console.log("Updating state");
-                console.log(action.wrestler);
                 return {...action.wrestler, selected:true};
             }
             return {...it, selected:false};
