@@ -46,26 +46,37 @@ We can improve the frontend code to provide for more interactivity.
 - [X] Make it so you can upload an image per wrestler
 - [X] Make 'Next' and 'Back' work
 - [X] Show a visual 'stack' of cards
-- [ ] Make each card editable to change 'fun fact'
-- [ ] Use Deloybot badge
-- [ ] Add link to source code in my github
+- [X] Use Deloybot badge
+- [X] Add link to my github
+- [X] Make each card editable to change 'fun fact'
+
+## CD/CI
+It might be nice to make this thing constantly update and put itself onto the internet or something.
+
+### TODO
+- [X] Integrate CD/CI with deploybot
+- [X] Have deploybot automatically deploy to wrestlecards.com when I push to master
+
+## Cleaner backend
+We should clean things up in our backend code
+
+### TODO
+- [ ] Separate Wrestler actions into it's own file
+- [ ] Make a separate routes file for application
+
+## Cleaner frontend
+We should clean things up in our frontend code
+
+### TODO
+- [ ] Improve UI to be more pleasing in general
+- [ ] Make Create Wrestler Dialog show/hide with button click
+- [ ] Add animations for transitions
+- [ ] Make Editable form more pleasing than current solution
 
 ## Expert backend
 What if we could get information that was super up to date at a regular interval?
 
 ### TODO
 - [ ] Make a subroutine to resize pictures
+- [ ] Make a subroutine to center pictures on faces
 - [ ] Make a scraper for this thing: https://en.wikipedia.org/wiki/List_of_WWE_personnel
-
-## Expert frontend
-
-### TODO
-- [ ] Add animations for all the stuff
-
-## CD/CI
-
-It might be nice to make this thing constantly update and put itself onto the internet or something.
-
-### TODO
-- [X] Integrate CD/CI with deploybot
-- [X] Have deploybot automatically deploy to wrestlecards.com
