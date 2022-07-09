@@ -1,14 +1,14 @@
 {
   "wrestlers": [
     {
-      "picture": "default_picture.png",
-      "description": "Example Description",
+      "picture": "kevin_owens.png",
+      "description": "Kevin Owens signed with WWE in August 2014, and joined their developmental branch NXT, where he held the NXT Championship once, before debuting with the belt on the main roster in May 2015. Owens is an accomplished champion in WWE: he has held the Universal Championship once, the Intercontinental Championship twice, and the United States Championship three times.",
       "name": "Kevin Owens",
       "id": "92684a24-06be-47cc-9494-bcc96d9a0f51"
     },
     {
-      "picture": "default_picture.png",
-      "description": "Example Description",
+      "picture": "chris_jericho.png",
+      "description": "Chris Jericho, is an American-Canadian professional wrestler and singer. He is currently signed to All Elite Wrestling (AEW), where he is the leader of the stable Jericho Appreciation Society. Noted for his over-the-top rock star persona, he has been named by journalists and industry colleagues as one of the greatest professional wrestlers of all time.",
       "name": "Chris Jericho",
       "id": "bd0ae5e1-e55c-4c21-be34-55a8d2623d1f"
     },
