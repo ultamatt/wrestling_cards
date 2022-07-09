@@ -19,21 +19,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
       - name: Create SSH key
         run: |
-          mkdir -p ~/.ssh/
-          echo "$DROPLET_SSH" > ../github_do.key
-          sudo chmod 600 ../github_do.key
-          ssh-keyscan -H ${{secrets.DROPLET_IP}} > ~/.ssh/known_hosts
-        shell: bash
-        env:
-          DROPLET_SSH: ${{secrets.DROPLET_SSH}}
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.DROPLET_SSH_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.DROPLET_IP }}" > ~/.ssh/known_hosts   
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - name: Install and Deploy 
         run: |
-          ../deploy.sh ${{secrets.DROPLET_IP}}
+          ../deploy.sh
         shell: bash
+      - name: Deploy with rsync
+        run: rsync -rav --delete build/ root@${{secrets.DROPLET_IP}}:/
           

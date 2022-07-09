@@ -7,5 +7,3 @@ npm run build
 
 cd $pwd/backend
 npm install
-
-rsync -aP ./* root@$1
