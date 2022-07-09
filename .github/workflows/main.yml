@@ -49,4 +49,4 @@ jobs:
           username: root
           key: ${{ secrets.DROPLET_SSH_PRIVATE_KEY }}
           script: |
-            bash /home/wrestle_cards/current/scripts/relaunch.sh
+            bash /home/wrestling_cards/current/scripts/relaunch.sh
