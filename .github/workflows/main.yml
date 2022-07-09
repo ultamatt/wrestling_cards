@@ -29,9 +29,8 @@ jobs:
           node-version: 12.x
       - name: Install and Deploy 
         run: |
-          echo $pwd
-          echo ls
-          ./deploy.sh
+          chmod +x ./scripts/test.sh
+          ./scripts/deploy.sh
         shell: bash
       - name: Deploy with rsync
         run: rsync -rav --delete build/ root@${{secrets.DROPLET_IP}}:/
