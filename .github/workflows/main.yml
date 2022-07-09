@@ -29,6 +29,10 @@ jobs:
         with:
           node-version: 12.x
       - uses: actions/checkout@v2
+      - name: Install and Deploy 
+        run: |
+          chmod +x ./scripts/deploy.sh
+          bash ./scripts/deploy.sh
       - name: Deploy with rsync
         uses: burnett01/rsync-deployments@5.2
         with:
@@ -38,6 +42,11 @@ jobs:
           remote_host: ${{ secrets.DROPLET_IP }}
           remote_user: root
           remote_key: ${{ secrets.DROPLET_SSH_PRIVATE_KEY }}
-
-      
-          
+      - name: Restart Pm2
+        uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.DROPLET_IP }}
+            username: root
+            key: ${{ secrets.DROPLET_SSH_PRIVATE_KEY }}
+            script: |
+              bash /home/wrestle_cards/current/scripts/relaunch.sh
