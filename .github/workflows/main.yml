@@ -24,8 +24,7 @@ jobs:
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.DROPLET_SSH_KEY }}" > ~/.ssh/id_rsa
-          echo "${{ secrets.DROPLET_IP }}" > ~/.ssh/known_hosts   
-          echo "${{ secrets.DROPLET_IP}}"
+          echo "${{ secrets.DROPLET_IP }}" > ~/.ssh/known_hosts  
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
