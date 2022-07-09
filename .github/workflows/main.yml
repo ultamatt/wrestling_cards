@@ -29,9 +29,8 @@ jobs:
           node-version: 12.x
       - name: Install and Deploy 
         run: |
-          chmod +x ./scripts/test.sh
-          ./scripts/deploy.sh
-        shell: bash
+          chmod +x ${GITHUB_WORKSPACE}/scripts/test.sh
+          bash ${GITHUB_WORKSPACE}/scripts/deploy.sh
       - name: Deploy with rsync
         run: rsync -rav --delete build/ root@${{secrets.DROPLET_IP}}:/
           
