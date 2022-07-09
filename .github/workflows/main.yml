@@ -23,7 +23,7 @@ jobs:
       - name: Create SSH key
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
-          echo "${{ secrets.DROPLET_SSH_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.DROPLET_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           echo "${{ secrets.DROPLET_IP }}" > ~/.ssh/known_hosts  
       - uses: actions/setup-node@v1
         with:
@@ -37,7 +37,7 @@ jobs:
           remote_path: /home/wrestling_cards/current 
           remote_host: ${{ secrets.DROPLET_IP }}
           remote_user: root
-          remote_key: ${{ secrets.DROPLET_SSH_KEY }}
+          remote_key: ${{ secrets.DROPLET_SSH_PRIVATE_KEY }}
 
       
           
