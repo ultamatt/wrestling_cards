@@ -29,9 +29,8 @@ jobs:
         with:
           node-version: 12.x
       - uses: actions/checkout@v2
-      - name: Code Checkout
-      - uses: burnett01/rsync-deployments@5.2
       - name: Deploy with rsync
+        uses: burnett01/rsync-deployments@5.2
         with:
           switches: -avzr --delete
           path: ./
