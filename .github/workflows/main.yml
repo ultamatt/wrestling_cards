@@ -17,6 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    environment: deployment
     runs-on: ubuntu-latest
     steps:
       - name: Create SSH key
