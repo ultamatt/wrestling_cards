@@ -1,0 +1,52 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    environment: deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create SSH key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.DROPLET_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.DROPLET_IP }}" > ~/.ssh/known_hosts  
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - uses: actions/checkout@v2
+      - name: Install and Deploy 
+        run: |
+          chmod +x ./scripts/deploy.sh
+          bash ./scripts/deploy.sh
+      - name: Deploy with rsync
+        uses: burnett01/rsync-deployments@5.2
+        with:
+          switches: -avzr --delete
+          path: ./
+          remote_path: /home/wrestling_cards/current 
+          remote_host: ${{ secrets.DROPLET_IP }}
+          remote_user: root
+          remote_key: ${{ secrets.DROPLET_SSH_PRIVATE_KEY }}
+      - name: Restart Pm2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: root
+          key: ${{ secrets.DROPLET_SSH_PRIVATE_KEY }}
+          script: |
+            bash /home/wrestling_cards/current/scripts/relaunch.sh
