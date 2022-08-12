@@ -13,7 +13,7 @@ const App = () => (
     <Hero>
         <Navbar transparent>
             <Navbar.Brand>
-                <Navbar.Item renderAs="a" href="#"><H1>Wrestler Cards</H1></Navbar.Item>
+                <Navbar.Item renderAs="a" href="#"><H1>Wrestle Cards</H1></Navbar.Item>
             </Navbar.Brand>
             <Navbar.Menu>
                 <Navbar.Container position="end">
@@ -26,7 +26,6 @@ const App = () => (
         </Content>
         <Footer>
             <Container>
-                <a href="https://deploybot.com" style={{ display: 'inline-block', marginRight:'10px' }}><img src="https://grawlix.deploybot.com/badge/56046448115488/148588.svg" alt="Deployment status from DeployBot"/></a>
                 <a className="github-button" href="https://github.com/ultamatt" data-show-count="true" aria-label="Follow @ultamatt on GitHub">Follow @ultamatt</a>
             </Container>
         </Footer>
