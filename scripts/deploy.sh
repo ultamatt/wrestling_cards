@@ -1,9 +1,9 @@
 #!/bin/bash
 pwd=$(pwd)
 
-cd $pwd/frontend
+cd /home/wrestling_cards/current/frontend
 npm install
 npm run build
 
-cd $pwd/backend
+cd /home/wrestling_cards/current/backend
 npm install
